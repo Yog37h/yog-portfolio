@@ -1,6 +1,5 @@
-// next.config.js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// Corrected next.config.mjs
+export default {
   reactStrictMode: true,
   experimental: {
     appDir: true,
@@ -18,8 +17,14 @@ const nextConfig = {
     }
     return config;
   },
-  // REMOVE or COMMENT OUT this line:
-  // target: 'serverless', 
+  // Disable SSR for all pages
+  async redirects() {
+    return [
+      {
+        source: '/(.*)',
+        destination: '/404',
+        permanent: false,
+      },
+    ];
+  },
 };
-
-module.exports = nextConfig;
