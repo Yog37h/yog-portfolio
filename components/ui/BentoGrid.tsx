@@ -8,6 +8,8 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import dynamic from 'next/dynamic';
 
+const BentoGrid = dynamic(() => import('./BentoGrid'), { ssr: false });
+
 const glowingKeyframes = `
 @keyframes glowing {
   100% {
