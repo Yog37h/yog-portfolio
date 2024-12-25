@@ -1,6 +1,4 @@
-// Correct syntax for ES Module (next.config.mjs)
 export default {
-  // Your Next.js configuration goes here
   reactStrictMode: true,
   experimental: {
     appDir: true,
@@ -16,6 +14,10 @@ export default {
         path: false,
       };
     }
+
     return config;
   },
+  // Add this option for handling dynamic imports for components
+  // Example: globally disable SSR by setting ssr: false for specific pages or components in dynamic imports
+  pageExtensions: ['tsx', 'ts', 'js', 'jsx'],
 };
