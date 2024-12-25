@@ -1,10 +1,6 @@
-// next.config.mjs (assuming you're using ES modules)
-
-import nextConfig from 'next/config'; // Assuming you're using `next/config`
-
-const { publicRuntimeConfig } = nextConfig();
-
-export default {
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
@@ -22,5 +18,8 @@ export default {
     }
     return config;
   },
-  // ... other configurations
+  // REMOVE or COMMENT OUT this line:
+  // target: 'serverless', 
 };
+
+module.exports = nextConfig;
