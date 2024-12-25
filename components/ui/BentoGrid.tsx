@@ -6,6 +6,13 @@ import Lottie from "react-lottie";
 import MagicButton from "../MagicButton";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
+import dynamic from 'next/dynamic';
+
+const BentoGridItemWithNoSSR = dynamic(() => import("./BentoGridItem"), {
+  ssr: false,
+});
+
+export { BentoGridItemWithNoSSR };
 
 const glowingKeyframes = `
 @keyframes glowing {
