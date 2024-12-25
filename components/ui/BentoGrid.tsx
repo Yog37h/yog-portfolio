@@ -279,9 +279,6 @@ const rollDownStyle = document.createElement("style");
 rollDownStyle.innerHTML = rollDownKeyframes;
 document.head.appendChild(rollDownStyle);
 
-export const BentoGridItemWithNoSSR = dynamic(() => import("./BentoGridItem"), {
-  ssr: false,
-});
 
 
 
