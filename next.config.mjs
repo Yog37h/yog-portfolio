@@ -1,9 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    output: 'export',
-    typescript: {
-        ignoreBuildErrors: true,
-    },
+    output: 'standalone',
 };
 
 // Temporarily remove Sentry integration
