@@ -1,4 +1,6 @@
-export default {
+// next.config.js (or next.config.mjs if using ES modules)
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
@@ -14,10 +16,10 @@ export default {
         path: false,
       };
     }
-
     return config;
   },
-  // Add this option for handling dynamic imports for components
-  // Example: globally disable SSR by setting ssr: false for specific pages or components in dynamic imports
-  pageExtensions: ['tsx', 'ts', 'js', 'jsx'],
+  // Add this target configuration to disable SSR
+  target: 'serverless', // or 'experimental-serverless-trace' for newer Next.js versions
 };
+
+module.exports = nextConfig;
