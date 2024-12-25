@@ -8,12 +8,6 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import dynamic from 'next/dynamic';
 
-const BentoGridItemWithNoSSR = dynamic(() => import("./BentoGridItem"), {
-  ssr: false,
-});
-
-export { BentoGridItemWithNoSSR };
-
 const glowingKeyframes = `
 @keyframes glowing {
   100% {
@@ -243,6 +237,7 @@ const gradientFlow = `
 }
 `;
 
+
 /* Injecting animation styles dynamically */
 const gradientStyle = document.createElement("style");
 gradientStyle.innerHTML = gradientFlow;
@@ -283,6 +278,10 @@ const rollDownKeyframes = `
 const rollDownStyle = document.createElement("style");
 rollDownStyle.innerHTML = rollDownKeyframes;
 document.head.appendChild(rollDownStyle);
+
+export const BentoGridItemWithNoSSR = dynamic(() => import("./BentoGridItem"), {
+  ssr: false,
+});
 
 
 
