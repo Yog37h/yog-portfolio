@@ -1,6 +1,10 @@
-// next.config.js (or next.config.mjs if using ES modules)
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+// next.config.mjs (assuming you're using ES modules)
+
+import nextConfig from 'next/config'; // Assuming you're using `next/config`
+
+const { publicRuntimeConfig } = nextConfig();
+
+export default {
   reactStrictMode: true,
   experimental: {
     appDir: true,
@@ -18,8 +22,5 @@ const nextConfig = {
     }
     return config;
   },
-  // Add this target configuration to disable SSR
-  target: 'serverless', // or 'experimental-serverless-trace' for newer Next.js versions
+  // ... other configurations
 };
-
-module.exports = nextConfig;
