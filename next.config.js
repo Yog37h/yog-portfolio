@@ -1,9 +1,8 @@
-// Corrected next.config.mjs
-export default {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
-    outputStandalone: true,
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -17,14 +16,12 @@ export default {
     }
     return config;
   },
-  // Disable SSR for all pages
-  async redirects() {
-    return [
-      {
-        source: '/(.*)',
-        destination: '/404',
-        permanent: false,
-      },
-    ];
-  },
+  output: 'standalone', // Fix experimental.outputStandalone
+};
+
+module.exports = {
+  ...nextConfig,
+  // Disable SSR by enabling static export
+  output: 'export',
+  trailingSlash: true,
 };
